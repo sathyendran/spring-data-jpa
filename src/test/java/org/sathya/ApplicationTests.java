@@ -1,10 +1,10 @@
-package org.sathya.springdatajpa;
+package org.sathya;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringDataJpaApplicationTests {
+class ApplicationTests {
 
 	@Test
 	void contextLoads() {
