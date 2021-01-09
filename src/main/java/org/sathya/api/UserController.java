@@ -26,4 +26,10 @@ public class UserController {
         log.info("Fetching the user information for id: {} ",id);
         return userService.getUserById(id);
     }
+
+    @GetMapping("/named-query")
+    public User getUserByEmail(@RequestParam String email) {
+        log.info("Fetch the user information based on email:{}",email);
+        return userService.findByEmail(email);
+    }
 }

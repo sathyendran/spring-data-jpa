@@ -9,6 +9,7 @@ import java.util.Date;
 @Entity
 @Table(name = "user")
 @Data
+@NamedQuery(name = "User.findByEmailAddress",query = "select u from User u where u.email=?1 ")
 public class User implements Serializable {
 
     @Id

@@ -22,9 +22,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserById(Long id) throws UserException {
-        log.info("Fetching the user Based on id : {} ",id);
+        log.info("Fetching the user Based on id : {} ", id);
         Optional<User> byId = userRepository.findById(id);
-        User user = byId.orElseThrow(() ->new UserException("User information not available for the id"));
+        User user = byId.orElseThrow(() -> new UserException("User information not available for the id"));
         return user;
+    }
+
+    /**
+     * Fetch the email by user
+     * Uses the named query
+     *
+     * @param email
+     * @return
+     */
+    @Override
+    public User findByEmail(String email) {
+        log.info("Find the user based on Email-{}", email);
+        return userRepository.findByEmailAddress(email);
     }
 }
