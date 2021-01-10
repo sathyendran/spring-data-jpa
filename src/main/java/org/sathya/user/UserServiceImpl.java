@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -39,5 +40,11 @@ public class UserServiceImpl implements UserService {
     public User findByEmail(String email) {
         log.info("Find the user based on Email-{}", email);
         return userRepository.findByEmailAddress(email);
+    }
+
+    @Override
+    public List<User> getByUser(String name) {
+        log.info("Searching the user:{}",name);
+        return userRepository.findByName(name);
     }
 }

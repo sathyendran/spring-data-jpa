@@ -7,6 +7,8 @@ import org.sathya.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/user")
 @Slf4j
@@ -31,5 +33,11 @@ public class UserController {
     public User getUserByEmail(@RequestParam String email) {
         log.info("Fetch the user information based on email:{}",email);
         return userService.findByEmail(email);
+    }
+
+    @GetMapping("/native-query")
+    public List<User> getUser(@RequestParam String name) {
+        log.info("Fetch the user name: {}",name);
+        return userService.getByUser(name);
     }
 }
